@@ -1,0 +1,505 @@
+:root {
+    --ColorPrincipal: #56070C;
+    --colorSecundario: #eae2c3;
+    --colorFormularioFondo: #56070ce0;
+    --colorFormulario: #eae2c337;
+
+    --fuenteHeading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+}
+
+/* HTML estilos general */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+    margin: 0;
+    background-image: url(img/fondo2.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 7.9rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Utilidades */
+.alinear__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+.subtitulo {
+    color: var(--ColorPrincipal);
+    font-size: 5rem;
+    font-family: var(--fuenteHeading);
+    margin: 2.5rem;
+    font-weight: 800;
+}
+
+.parrafo {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 4rem;
+    background-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+    padding: 5rem;
+    flex-wrap: wrap;
+}
+
+/* contenedores generales */
+.contenedor {
+    width: 90%;
+    max-width: 170rem;
+    margin: 0 auto;
+}
+
+.contenedor__general {
+    width: 90%;
+    max-width: 170rem;
+    margin: 5rem auto 0 auto;
+}
+
+/* Header y footer */
+header, footer {
+    background-color: var(--ColorPrincipal);
+    height: 15rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Logo */
+.tamano__logo {
+    font-size: 6rem;
+}
+
+.logo {
+    color: var(--colorSecundario);
+    font-size: 4.5rem;
+}
+
+.logo__bold {
+    font-weight: 700;
+}
+
+/* Barra navegacion */
+.barra {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 4rem;
+}
+
+.navegacion {
+    display: flex;
+    gap: 3rem;
+    background-color: var(--ColorPrincipal);
+    flex-wrap: wrap;
+}
+
+.navegacion a:hover {
+    background-color: var(--colorSecundario);
+    color: var(--ColorPrincipal);
+    transition: all 0.6s ease;
+}
+
+.buttonNav {
+    background-color: transparent;
+    color: #fff;
+    width: 14rem;
+    height: 7rem;
+    text-align: center;
+    transition: all 0.6s ease;
+    border-radius: 1em;
+}
+
+.buttonNav:hover {
+    background-color: var(--colorSecundario);
+    cursor: pointer;
+    color: var(--ColorPrincipal);
+}
+
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--colorSecundario);
+    background-color: var(--ColorPrincipal);
+    margin-right: 2rem;
+}
+
+.barra__busqueda {
+    padding: 1rem;
+    width: 35rem;
+}
+
+.carrito svg {
+    width: 4.2rem;
+    height: 4.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* carrusel */
+.sombra__carrusel {
+    box-shadow: 0px 5px 15px 0px rgba(110, 110, 110, 0.518);
+    background-color: var(--colorFormularioFondo);
+    padding: 2rem;
+}
+
+.contenedor__carrusel {
+    width: 90%;
+    max-width: 130rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Catalogo */
+.texto__catalogo {
+    font-weight: 700;
+    font-size: 3rem;
+    font-family: var(--fuenteHeading);
+    color: var(--colorSecundario);
+}
+
+.card {
+    background-color: var(--ColorPrincipal);
+    margin: 1rem;
+    padding: 1.5rem;
+}
+
+.boton__modal {
+    border: none;
+    outline: 0;
+    color: var(--colorSecundario);
+    background-color: var(--colorFormularioFondo);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.modal__estilos {
+    background-image: url(img/fondo2.png);
+    width: 100%;
+}
+
+/* Contacto */
+.formulario {
+    background-color: var(--colorFormularioFondo);
+    width: 90%;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--ColorPrincipal);
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--colorSecundario);
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
+.campo textarea {
+    height: 15rem;
+}
+
+.campo__codigo {
+    width: 17%;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    height: 4rem;
+}
+
+.contenedor__formulario {
+    width: 90%;
+    max-width: 80rem;
+    margin: 1rem auto 0 auto;
+}
+
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(110, 110, 110, 0.518);
+    background-color: var(--colorFormulario);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.subtitulo__formulario {
+    font-size: 2rem;
+    color: var(--colorSecundario);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.boton__formulario_div {
+    background-image: url(img/fondo2.png);
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Boton formulario */
+.button {
+    background-color: transparent;
+    color: #fff;
+    width: 8.5em;
+    height: 2.9em;
+    text-align: center;
+    transition: all 0.6s ease;
+    border-radius: 1em;
+    margin-bottom: 2rem;
+}
+
+.button:hover {
+    background-color: var(--colorSecundario);
+    cursor: pointer;
+    color: var(--ColorPrincipal);
+}
+
+/* Boton Modal contacto */
+.boton-modal {
+    padding: 1.5rem;
+}
+
+.boton-modal label {
+    padding: 1rem 1.5rem;
+    background-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.boton-modal label:hover {
+    background-color: var(--colorFormulario);
+}
+
+/* Ventana Modal contacto */
+#btn-modal {
+    display: none;
+}
+
+.container-modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--colorFormulario);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#btn-modal:checked ~ .container-modal {
+    display: flex;
+}
+
+.content-modal {
+    width: 90%;
+    max-width: 40rem;
+    padding: 2rem;
+    background-color: var(--ColorPrincipal);
+    border-radius: 0.4rem;
+}
+
+.content-modal h2 {
+    margin-bottom: 1.5rem;
+}
+
+.content-modal p {
+    padding: 1.5rem 0;
+    border-top: 0.1rem solid var(--colorSecundario);
+    border-bottom: 0.1rem solid var(--colorSecundario);
+}
+
+.content-modal .btn-cerrar {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-modal .btn-cerrar label {
+    padding: 0.7rem 1rem;
+    background-color: var(--ColorPrincipal);
+    color: #fff;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.content-modal .btn-cerrar label:hover {
+    background-color: var(--colorFormularioFondo);
+}
+
+.cerrar-modal {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+@media screen and (max-width: 800px) {
+    .content-modal {
+        width: 90%;
+    }
+}
+
+/* Proyectos cards */
+.texto__proyecto {
+    font-size: 2.5rem;
+    color: var(--colorSecundario);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.contenedor__card {
+    margin: 2rem;
+}
+
+.parrafo__card {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 4rem;
+    background-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+    flex-wrap: wrap;
+}
+
+/* Trabaja con nosotros */
+.contenedor__formulario__contacto {
+    width: 90%;
+    max-width: 110rem;
+    margin: 1rem auto 0 auto;
+    height: auto;
+}
+
+.formulario__contacto {
+    background-color: var(--colorFormularioFondo);
+    width: 90%;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.contenedor_campos_contacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
+    grid-gap: 2rem;
+}
+
+.campo {
+    margin-bottom: 2rem;
+}
+
+.campo__genero select {
+    width: 100%;
+}
+
+.campo__comentario textarea {
+    width: 100%;
+    height: 20rem;
+}
+
+.campo_genero {
+    font-size: 2rem;
+}
+
+.carrito__card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedor__carrito {
+    width: 90%;
+    max-width: 80rem;
+    margin: 1rem auto 0 auto;
+    height: auto;
+}
+
+.hora {
+    font-size: 3rem;
+    margin: 0;
+    font-family: var(--fuenteParrafos);
+    color: var(--ColorPrincipal);
+}

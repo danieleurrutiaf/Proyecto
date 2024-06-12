@@ -7,6 +7,10 @@ def index(request):
     context = {}
     return render(request, 'taller1/index.html', context) 
 
+def base(request): 
+    context = {}
+    return render(request, 'taller1/base.html', context) 
+
 def contacto(request):
     context = {}
     return render(request, 'taller1/contacto.html', context)

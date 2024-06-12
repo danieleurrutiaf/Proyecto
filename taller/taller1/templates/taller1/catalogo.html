@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" crossorigin="anonymous" as="font">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="{% static 'css/Styles.css' %}">
     <title>Taller Mecánico Rayo Makween</title>
 </head>
 
@@ -23,7 +24,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="img/proyecto1.jpg" class="card-img-top img-fluid" alt="Imagen 1">
+                    <img src="{% static 'img/proyecto1.jpg' %}" class="card-img-top img-fluid" alt="Imagen 1">
                     <div class="card-body">
                         <h2 class="card-title texto__catalogo centrar-texto">Servicio 1</h2>
                         <button type="button" class="boton__modal buttonNav" data-bs-toggle="modal" data-bs-target="#modal1">Ver</button>
@@ -47,7 +48,7 @@
     
             <div class="col-md-4">
                 <div class="card">
-                    <img src="img/proyecto2.jpg" class="card-img-top img-fluid" alt="Imagen 2">
+                    <img src="{% static 'img/proyecto2.jpg' %}" class="card-img-top img-fluid" alt="Imagen 2">
                     <div class="card-body">
                         <h2 class="card-title texto__catalogo centrar-texto">Servicio 2</h2>
                         <button type="button" class="boton__modal buttonNav" data-bs-toggle="modal" data-bs-target="#modal2">Ver</button>
@@ -71,7 +72,7 @@
           
             <div class="col-md-4">
                 <div class="card">
-                    <img src="img/proyecto3.jpg" class="card-img-top img-fluid" alt="Imagen 3">
+                    <img src="{% static 'img/proyecto3.jpg' %}" class="card-img-top img-fluid" alt="Imagen 3">
                     <div class="card-body">
                         <h2 class="card-title texto__catalogo centrar-texto">Servicio 3</h2>
                         <button type="button" class="boton__modal buttonNav" data-bs-toggle="modal" data-bs-target="#modal3">Ver</button>
@@ -95,7 +96,7 @@
             
             <div class="col-md-4">
                 <div class="card">
-                    <img src="img/proyecto4.jpg" class="card-img-top img-fluid" alt="Imagen 4">
+                    <img src="{% static 'img/proyecto4.jpg' %}" class="card-img-top img-fluid" alt="Imagen 4">
                     <div class="card-body">
                         <h2 class="card-title texto__catalogo centrar-texto">Servicio 4</h2>
                         <button type="button" class="boton__modal buttonNav" data-bs-toggle="modal" data-bs-target="#modal4">Ver</button>
@@ -119,7 +120,7 @@
            
             <div class="col-md-4">
                 <div class="card">
-                    <img src="img/proyecto5.jpg" class="card-img-top img-fluid" alt="Imagen 5">
+                    <img src="{% static 'img/proyecto5.jpg' %}" class="card-img-top img-fluid" alt="Imagen 5">
                     <div class="card-body">
                         <h2 class="card-title texto__catalogo centrar-texto">Servicio 5</h2>
                         <button type="button" class="boton__modal buttonNav" data-bs-toggle="modal" data-bs-target="#modal5">Ver</button>
@@ -143,7 +144,7 @@
             
             <div class="col-md-4">
                 <div class="card">
-                    <img src="img/proyecto6.webp" class="card-img-top img-fluid" alt="Imagen 6">
+                    <img src="{% static 'img/proyecto6.webp' %}" class="card-img-top img-fluid" alt="Imagen 6">
                     <div class="card-body">
                         <h2 class="card-title texto__catalogo centrar-texto">Servicio 6</h2>
                         <button type="button" class="boton__modal buttonNav" data-bs-toggle="modal" data-bs-target="#modal6">Ver</button>
@@ -171,8 +172,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="funciones.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="{% static 'js/funciones.js' %}"></script>
 </body>
 
 </html>

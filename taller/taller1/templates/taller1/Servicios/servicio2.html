@@ -1,0 +1,46 @@
+{% extends 'taller1/base.html' %}
+{% load static %}
+
+{% block content %}
+  <title>Taller Mecanico Rayo Makween</title>
+
+    <div>
+        <p class="hora centrar-texto" id="datetime"></p>
+    </div>
+    
+    <div class="row contenedor__card">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{% static 'img/proyecto2.jpg' %}">
+                </div>
+                <a href="{% url 'catalogo' %}" class="navegacion__enlace buttonNav">Volver</a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="texto__catalogo centrar-texto">Servicio 2</h1>
+                    <ul class="texto__proyecto">
+                        <li>Tipo de proyecto:</li>
+                        <li>Costo:</li>
+                        <li>Mecanicos:</li>
+                        <li>Costo:</li>
+                        <li>Plazo:</li>
+                    </ul>
+                    <h2 class="centrar-texto texto__catalogo"> Descripcion </h2>
+                    <p class="parrafo__card">isi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <a class="logo" href="{% url 'carrito' %}">
+                        <button class="btn carrito navegacion__enlace" type="button" data-toggle="popover" data-placement="bottom" title="Por el momento la sección de carrito se encuentra en mantenimiento" data-content="Por el momento la sección de carrito se encuentra en mantenimiento" onclick="window.location.href = 'carrito.html';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                            </svg>
+                        </button> 
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

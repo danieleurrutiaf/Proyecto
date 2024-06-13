@@ -26,7 +26,23 @@ def catalogo(request):
 def carrito(request):
     context = {}
     return render(request, 'taller1/carrito.html', context)
+#Sercicios
 
-def proyecto1(request):
+def servicio1(request):
     context = {}
-    return render(request, 'taller1/proyecto1.html', context)
+    return render(request, 'taller1/Servicios/servicio1.html', context)
+def servicio2(request):
+    context = {}
+    return render(request, 'taller1/Servicios/servicio2.html', context)
+def servicio3(request):
+    context = {}
+    return render(request, 'taller1/Servicios/servicio3.html', context)
+def servicio4(request):
+    context = {}
+    return render(request, 'taller1/Servicios/servicio4.html', context)
+def servicio5(request):
+    context = {}
+    return render(request, 'taller1/Servicios/servicio5.html', context)
+def servicio6(request):
+    context = {}
+    return render(request, 'taller1/Servicios/servicio6.html', context)

@@ -84,7 +84,7 @@ $(document).ready(function() {
             'contacto': '{% url "contacto" %}',
             'menu': '{% url "index" %}',
             'noticias': '{% url "noticias" %}',
-            'proyecto': '{% url "proyecto1" %}'
+            'servivio1': '{% url "servicio" %}'
         };
 
         if (servicios[searchTerm]) {

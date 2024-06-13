@@ -72,6 +72,34 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+$(document).ready(function() {
+    $('#searchForm').submit(function(event) {
+        event.preventDefault();
+
+        var searchTerm = $(this).find('input').val().trim().toLowerCase();
+
+        var servicios = {
+            'carrito': '{% url "carrito" %}',
+            'catalogo': '{% url "catalogo" %}',
+            'contacto': '{% url "contacto" %}',
+            'menu': '{% url "index" %}',
+            'noticias': '{% url "noticias" %}',
+            'proyecto': '{% url "proyecto1" %}'
+        };
+
+        if (servicios[searchTerm]) {
+            window.location.href = servicios[searchTerm];
+        } else {
+            alert('Servicio no encontrado');
+        }
+    });
+});
+
+
+
+
+
+// Generar api fecha y hora actual
 function fetchDateTime() {
     const url = 'http://worldtimeapi.org/api/ip';
 

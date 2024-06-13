@@ -23,7 +23,7 @@ body {
     font-size: 1.6rem;
     line-height: 2;
     margin: 0;
-    background-image: url(img/fondo2.png);
+    background-image: url('/static/img/fondo2.png');
     background-size: cover;
     background-attachment: fixed;
 }

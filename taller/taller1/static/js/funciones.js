@@ -96,9 +96,6 @@ $(document).ready(function() {
 });
 
 
-
-
-
 // Generar api fecha y hora actual
 function fetchDateTime() {
     const url = 'http://worldtimeapi.org/api/ip';
@@ -128,4 +125,6 @@ window.onload = function() {
     fetchDateTime(); // Llamada inicial para mostrar la hora y fecha actual
     setInterval(fetchDateTime, 1000); // Actualizar cada segundo
 };
+
+
 

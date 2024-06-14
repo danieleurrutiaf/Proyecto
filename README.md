@@ -19,3 +19,5 @@ Sebastian - - 13/JUN - - "-Primer cambio: Se ajusto hover del navbar
 
 Sebastian - - 13/JUN - - " Se crearon los html "Servicios" y se guardaron en la carpeta "Servicios" que esta dentro del template, cabe destacar que se modifico el url.py, view.py y las demas rutas pertinentes"
 
+Sebastian - - 13/JUN - - "Se creo el super usuario Admin y las tablas correspondientes de Usuario y genero, por el momento se probara en el html noticias, mas adelante se creara el respectivo html"
+

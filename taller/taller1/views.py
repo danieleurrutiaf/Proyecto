@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Usuario,Genero
+
 # Create your views here.
 
 
@@ -16,7 +18,8 @@ def contacto(request):
     return render(request, 'taller1/contacto.html', context)
 
 def noticias(request):
-    context = {}
+    Usuarios= Usuario.objects.all()
+    context = {"Usuarios":Usuarios}
     return render(request, 'taller1/noticias.html', context)
 
 def catalogo(request):

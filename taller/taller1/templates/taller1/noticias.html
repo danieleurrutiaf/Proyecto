@@ -5,4 +5,16 @@
     <title>Taller Mecanico Rayo Makween</title>
         <p class="hora centrar-texto" id="datetime"></p>
 
+
+        <h1> Nustros Usuarios</h1>
+
+        <ul>
+            {% for Usuario in Usuarios %}
+                <li>
+                    {{ Usuario.rut }}, {{ Usuario.nombre }}, {{ Usuario.apellido_paterno }},
+                    {{ Usuario.apellido_materno }}, {{ Usuario.id_genero.genero }}
+                </li>
+            {% endfor %}
+        </ul>
+
 {% endblock %}

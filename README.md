@@ -21,3 +21,4 @@ Sebastian - - 13/JUN - - " Se crearon los html "Servicios" y se guardaron en la 
 
 Sebastian - - 13/JUN - - "Se creo el super usuario Admin y las tablas correspondientes de Usuario y genero, por el momento se probara en el html noticias, mas adelante se creara el respectivo html"
 
+Daniel - - 15/JUN - - "Se creo el crud en el html "noticias" por el momento"

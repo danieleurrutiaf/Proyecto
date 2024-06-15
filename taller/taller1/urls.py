@@ -15,6 +15,8 @@ urlpatterns = [
     path('servicio3', views.servicio3, name='servicio3'),
     path('servicio4', views.servicio4, name='servicio4'),
     path('servicio5', views.servicio5, name='servicio5'),
-    path('servicio6', views.servicio6, name='servicio6')
+    path('servicio6', views.servicio6, name='servicio6'),
+    path('crud', views.crud, name='crud'),
+    path('usuariosAdd', views.usuariosAdd, name='usuariosAdd'),
     
 ]

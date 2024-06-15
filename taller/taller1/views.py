@@ -49,3 +49,15 @@ def servicio5(request):
 def servicio6(request):
     context = {}
     return render(request, 'taller1/Servicios/servicio6.html', context)
+
+def crud(request):
+    usuarios = Usuario.objects.all()
+    context = {'usuarios': usuarios}
+    return render(request, 'taller1/usuarios_list.html', context)
+
+def usuariosAdd(request):
+    if request.method is not "POST":
+
+        generos=Genero.objects.all()
+        context={'generos':generos}
+        return render(request, 'taller1/usuariosAdd.html', context)

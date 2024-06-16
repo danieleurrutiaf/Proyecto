@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Usuario,Genero
 
@@ -52,12 +52,47 @@ def servicio6(request):
 
 def crud(request):
     usuarios = Usuario.objects.all()
-    context = {'usuarios': usuarios}
+    context = {"Usuarios": usuarios}
     return render(request, 'taller1/usuarios_list.html', context)
 
-def usuariosAdd(request):
-    if request.method is not "POST":
 
+def UsuarioAdd(request):
+    if request.method is not "POST":
         generos=Genero.objects.all()
-        context={'generos':generos}
-        return render(request, 'taller1/usuariosAdd.html', context)
+        context= {'generos': generos}
+        return render(request, 'taller1/usuarios_add.html', context)
+    else:
+
+        rut=request.POST["rut"]
+        nombre=request.POST["nombre"]
+        aPaterno=request.POST["paterno"]
+        aMaterno=request.POST["materno"]
+        fechaNac=request.POST["fechaNac"]
+        genero=request.POST["genero"]
+        telefono=request.POST["telefono"]
+        email=request.POST["email"]
+        activo="1"
+
+
+        objGenero=Genero.objects.get(id_genero = genero)
+        obj=Usuario.objects.create( rut=rut,
+                                    nombre=nombre,
+                                    apellido_paterno=aPaterno,
+                                    apellido_materno=aMaterno,
+                                    fecha_nacimiento=fechaNac,
+                                    id_genero=objGenero,
+                                    telefono=telefono,
+                                    email=email,
+                                    activo=1 )
+        
+        obj.save()
+        context={'mensaje' : "OK, datos grabados..."}
+        return render(request, 'taller1/usuarios_add.html', context)
+
+
+
+
+
+
+    
+

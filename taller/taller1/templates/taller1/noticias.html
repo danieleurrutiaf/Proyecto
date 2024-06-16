@@ -18,46 +18,4 @@
 </ul>
 
 
-<h1>Editar Datos De Usuarios</h1>
-<br><br>
-
-<button type="button">
-    <a href="{% url 'usuariosAdd' %}">Agregar</a>
-</button>
-
-<div id="idMensajes">
-    {% if mensaje %}
-    {{ mensaje }}
-    {% endif %}
-</div>
-
-        <table>
-            {% if usuarios %}
-                <th>Rut</th>
-                <th>Nombre</th>
-                <th>Apellido P.</th>
-                <th>Eliminar</th>
-                <th>Modificar</th>
-                {% for x in usuarios %}
-                    <tr>
-                        <td>{{ x.rut }}</td>
-                        <td>{{ x.nombre }}</td>
-                        <td>{{ x.apellido_paterno }}</td>
-                        <td><a href="{% url 'usuario_del' pk=x.rut %}">Eliminar</a></td>
-                        <td><a href="{% url 'usuario_findEdit' pk=x.rut %}">Modificar</a></td>
-                    </tr>
-            {% endfor %}
-        {% endif %}
-    </table>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#idMensajes").delay(2000).fadeOut("slow");
-        });
-    </script>
-
-
-
-
 {% endblock %}

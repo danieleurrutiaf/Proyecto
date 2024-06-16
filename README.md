@@ -26,3 +26,5 @@ Daniel - - 15/JUN - - "Se creo el crud en el html "noticias" por el momento"
 Sebastian - - 15/JUN - - "Se crearon los html de Usuarios (add, list y edit)
                           Se creo el form para agregar Usuarios, pero tiene problemas a la hora de hacer su funcion"
                           Se cambio el crud al footer (Se llama "Usuarios")
+                          
+Sebastian - - 15/JUN - - "Pase 3 horas intentando arreglar el codigo... veo la diapo de la actividad 3.4 donde muestra hacerlo de una manera mas senclla, ojala funcione jeje"

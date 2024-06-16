@@ -3,31 +3,14 @@
 
 {% block content %}
     <title>Taller Mecánico Rayo Makween</title>
-    <div style="text-align: center;">
+    
         <h2>Formulario CRUD para Usuarios</h2><br>
-        <form action="{% url 'UsuarioAdd' %}" method="POST">
+        <form action="" method="POST">
             {% csrf_token %}
-
-            <pre>Rut:              <input type="text"  name="rut"></pre>
-            <pre>Nombre:           <input type="text"  name="nombre"></pre>
-            <pre>Apellido P.:      <input type="text"  name="paterno"></pre>
-            <pre>Apellido M.:      <input type="text"  name="materno"></pre>
-            <pre>Fech nac.:        <input type="date"  name="fechaNac"></pre>
-
-            <pre>Genero: <select name="genero">
-                {% for genero in generos %}
-                    <option value="{{ genero.id }}"> {{ genero.genero }}</option>
-                {% endfor %}
-            </select></pre>
-
-            <pre>Celular:          <input type="text"  name="telefono"></pre>
-            <pre>Email:            <input type="email"  name="email"></pre>
-           
-
+            {{ form.as_table }}
             <input type="submit" name="opcion" value="Agregar"> 
-        </form><br><br>
+        </form>
 
-        <a href="{% url 'crud' %}">Volver </a>
         <br>
 
         <div id="idMensajes">
@@ -35,7 +18,11 @@
                 {{ mensaje }}
             {% endif %}
         </div>
-    </div>
+        
+        <br>
+        <a href="{% url 'crud' %}">Volver </a>
+        <br>
+   
 {% endblock %}
 
 

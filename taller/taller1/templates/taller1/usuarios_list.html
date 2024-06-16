@@ -27,13 +27,13 @@
                 </tr>
             </thead>
             <tbody>
-                {% for usuario in Usuarios %}
+                {% for x in Usuarios %}
                     <tr>
-                        <td>{{ usuario.rut }}</td>
-                        <td>{{ usuario.nombre }}</td>
-                        <td>{{ usuario.apellido_paterno }}</td>
-                        <td><a href="{% url 'Usuario_del' pk=usuario.rut %}">Eliminar</a></td>
-                        <td><a href="{% url 'Usuario_findEdit' pk=usuario.rut %}">Modificar</a></td>
+                        <td>{{ x.rut }}</td>
+                        <td>{{ x.nombre }}</td>
+                        <td>{{ x.apellido_paterno }}</td>
+                        <td><a href="{% url 'Usuario_del' pk=x.rut %}">Eliminar</a></td>
+                        <td><a href="">Modificar</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

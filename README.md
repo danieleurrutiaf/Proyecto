@@ -28,3 +28,5 @@ Sebastian - - 15/JUN - - "Se crearon los html de Usuarios (add, list y edit)
                           Se cambio el crud al footer (Se llama "Usuarios")
                           
 Sebastian - - 15/JUN - - "Pase 3 horas intentando arreglar el codigo... veo la diapo de la actividad 3.4 donde muestra hacerlo de una manera mas senclla, ojala funcione jeje"
+
+Sebastian - - 16/JUN - - "Agregar y eliminar usuarios esta listo, falta hacer el modificar, pero lo hago manana pq ya son las 4 am jeje, tambien manana hago los estilos para que se vea decente"

@@ -5,7 +5,7 @@
     <title>Taller Mecánico Rayo Makween</title>
     <div style="text-align: center;">
         <h2>Formulario CRUD para Usuarios</h2><br>
-        <form action="{% url 'UsuarioAdd' %}" method="post">
+        <form action="{% url 'UsuarioAdd' %}" method="POST">
             {% csrf_token %}
 
             <pre>Rut:              <input type="text"  name="rut"></pre>

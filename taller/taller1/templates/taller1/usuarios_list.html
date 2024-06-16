@@ -2,44 +2,42 @@
 {% load static %}
 
 {% block content %}
-<title>Taller Mecanico Rayo Makween</title>
-    <p class="hora centrar-texto" id="datetime"></p>
+    <title>Taller Mecánico Rayo Makween</title>
+    <div style="text-align: center;">
+        <h1>Editar Datos De Usuario</h1><br>
 
-    <h1>Editar Datos De Usuario</h1><br>
-    <br>
+        <button type="button">
+            <a href="{% url 'UsuarioAdd' %}">Agregar</a>
+        </button>
 
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
 
-    <button type="button">
-        <a href="{% url 'UsuarioAdd' %}"> Agregar</a>
-    </button>
-
-
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{mensaje}}
-        {% endif %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Rut</th>
+                    <th>Nombre</th>
+                    <th>Apellido P.</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in Usuarios %}
+                    <tr>
+                        <td>{{ usuario.rut }}</td>
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.apellido_paterno }}</td>
+                        <td><a href="{% url 'Usuario_del' pk=usuario.rut %}">Eliminar</a></td>
+                        <td><a href="{% url 'Usuario_findEdit' pk=usuario.rut %}">Modificar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+{% endblock %}
 
-    <table>
-        {% if Usuarios %}
-        <th>Rut</th>
-        <th>Nombre</th>
-        <th>Apellido P.</th>
-        <th>Eliminar</th>
-        <th>Modificar</th>
-        {% for x in usuarios %}
-            <tr>
-                <td> {{ x.rut}}
-                <td> {{ x.nombre}}
-                <td> {{ x.apellido_paterno}}
-                <td> <button href="{% url 'Usuario_del' pk=x.rut %}">Eliminar</a>
-                <td> <button href="{% url 'Usuario_findEdit' pk=x.rut %}">Modificar</a>
-            </tr>
-
-            {% endfor %}
-        {% endif %}
-    </table>
-
-
-
-    {% endblock %}

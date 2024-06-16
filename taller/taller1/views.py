@@ -88,6 +88,29 @@ def UsuarioAdd(request):
         obj.save()
         context={'mensaje' : "OK, datos grabados..."}
         return render(request, 'taller1/usuarios_add.html', context)
+    
+
+def Usuario_del(request, pk):
+    context={}
+    try:
+
+        Usuario=Usuario.objects.get(rut=pk)
+
+        Usuario.delete()
+        mensaje="Bien, datos eliminados"
+        Usuario= Usuario.objects.all()
+        context= {'Usuario': Usuario, 'mensaje': mensaje}
+        return render(request, 'taller1/usuario_list.html', context)
+    
+    except:
+        mensaje="Error, rut no existe..."
+        Usuario= Usuario.objects.all()
+        context= {'Usuario': Usuario, 'mensaje': mensaje}
+        return render(request, 'taller1/usuarios_list.html', context)
+
+
+
+
 
 
 

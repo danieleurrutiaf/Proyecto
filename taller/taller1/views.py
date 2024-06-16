@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 from .models import Usuario,Genero
 
@@ -57,12 +57,7 @@ def crud(request):
 
 
 def UsuarioAdd(request):
-    if request.method is not "POST":
-        generos=Genero.objects.all()
-        context= {'generos': generos}
-        return render(request, 'taller1/usuarios_add.html', context)
-    else:
-
+    if request.method is "POST":
         rut=request.POST["rut"]
         nombre=request.POST["nombre"]
         aPaterno=request.POST["paterno"]
@@ -87,6 +82,10 @@ def UsuarioAdd(request):
         
         obj.save()
         context={'mensaje' : "OK, datos grabados..."}
+        return render(request, 'taller1/usuarios_add.html', context) 
+    else:
+        generos=Genero.objects.all()
+        context= {'generos': generos}
         return render(request, 'taller1/usuarios_add.html', context)
     
 
@@ -94,20 +93,74 @@ def Usuario_del(request, pk):
     context={}
     try:
 
-        Usuario=Usuario.objects.get(rut=pk)
+        usuario=Usuario.objects.get(rut=pk)
 
-        Usuario.delete()
+        usuario.delete()
         mensaje="Bien, datos eliminados"
-        Usuario= Usuario.objects.all()
-        context= {'Usuario': Usuario, 'mensaje': mensaje}
+        usuario= Usuario.objects.all()
+        context= {'usuario': usuario, 'mensaje': mensaje}
         return render(request, 'taller1/usuario_list.html', context)
     
     except:
         mensaje="Error, rut no existe..."
-        Usuario= Usuario.objects.all()
-        context= {'Usuario': Usuario, 'mensaje': mensaje}
+        usuario= Usuario.objects.all()
+        context= {'usuario': usuario, 'mensaje': mensaje}
         return render(request, 'taller1/usuarios_list.html', context)
 
+
+def Usuario_findEdit (request,pk):
+
+    if pk != "":
+        usuario= Usuario.objects.get(rut=pk)
+        generos=Genero.objects.all()
+
+        print(type(usuario.id_genero.genero))
+
+        context={'usuario': usuario, 'generos': generos}
+        if usuario:
+            return render (request, 'taller1/usuarios_edit.html', context)
+        else:
+            context={'mensaje': "Error, rut no existe..." }
+            return render(request, 'taller1/usuarios_list.html', context)
+
+
+
+def UsuarioUpdate (request):
+
+    if request.method != "POST":
+
+        rut=request.POST["rut"]
+        nombre=request.POST["nombre"]
+        aPaterno=request.POST["paterno"]
+        aMaterno=request.POST["materno"]
+        fechaNac=request.POST["fechaNac"]
+        genero=request.POST["genero"]
+        telefono=request.POST["telefono"]
+        email=request.POST["email"]
+        activo="1"
+
+        objGenero=Genero.objects.get(id_genero = genero)
+
+        usuario = Usuario()
+        usuario.rut=rut,
+        usuario.nombre=nombre,
+        usuario.apellido_paterno=aPaterno,
+        usuario.apellido_materno=aMaterno,
+        usuario.fecha_nacimiento=fechaNac,
+        usuario.id_genero=objGenero,
+        usuario.telefono=telefono,
+        usuario.email=email,
+        usuario.activo=1
+        usuario.save()
+
+        generos=Genero.objects.all()
+        context={'mensaje': "OK, datos actualizados...", 'generos': generos, 'usuario':usuario}
+        return render(request, 'taller1/usuarios_edir.html', context)
+    
+    else:
+        usuarios= Usuario.objects.all()
+        context={'usuarios': usuarios}
+        return render(request, 'taller1/usuarios_list.html', context)
 
 
 

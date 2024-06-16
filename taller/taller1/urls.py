@@ -18,7 +18,9 @@ urlpatterns = [
     path('servicio6', views.servicio6, name='servicio6'),
     path('crud/', views.crud, name='crud'),
     path('UsuarioAdd', views.UsuarioAdd, name='UsuarioAdd'),
-    path('Usuario_del/<str:pk>', views.Usuario_del, name='Usuario_del')
+    path('Usuario_del/<str:pk>', views.Usuario_del, name='Usuario_del'),
+    path('Usuario_findEdit/<str:pk>', views.Usuario_findEdit, name='Usuario_findEdit'),
+    path('UsuarioUpdate', views.UsuarioUpdate, name='UsuarioUpdate')
     
     
     

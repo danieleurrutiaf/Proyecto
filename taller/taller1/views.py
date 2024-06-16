@@ -88,7 +88,25 @@ def Usuario_del(request, pk):
         return render(request, 'taller1/usuarios_list.html', context)    
 
     
-    
+def Usuario_edit(request, pk):
+    usuario = get_object_or_404(Usuario, rut=pk)  # Utiliza get_object_or_404 para manejar usuarios no existentes
+    if request.method == "POST":
+        form = UsuarioForm(request.POST, instance=usuario)
+        if form.is_valid():  # Asegúrate de que el formulario es válido antes de guardar
+            form.save()
+            mensaje = "Bien, datos actualizados..."
+            return redirect('Usuario_edit', pk=usuario.rut)  # Redirige a una página de detalle o lista después de guardar
+        else:
+            mensaje = "Error, datos no válidos."
+    else:
+        form = UsuarioForm(instance=usuario)
+        mensaje = ""
+
+    context = {'usuario': usuario, 'form': form, 'mensaje': mensaje}
+    return render(request, 'taller1/usuarios_edit.html', context)
+
+
+
 
 
 

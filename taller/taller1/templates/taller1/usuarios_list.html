@@ -4,7 +4,7 @@
 {% block content %}
     <title>Taller Mecánico Rayo Makween</title>
     <div style="text-align: center;">
-        <h1>Editar Datos De Usuario</h1><br>
+        <h1>Listado De Usuario</h1><br>
 
         <button type="button">
             <a href="{% url 'UsuarioAdd' %}">Agregar</a>
@@ -33,7 +33,7 @@
                         <td>{{ x.nombre }}</td>
                         <td>{{ x.apellido_paterno }}</td>
                         <td><a href="{% url 'Usuario_del' pk=x.rut %}">Eliminar</a></td>
-                        <td><a href="">Modificar</a></td>
+                        <td><a href="{% url 'Usuario_edit' pk=x.rut %}">Modificar</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

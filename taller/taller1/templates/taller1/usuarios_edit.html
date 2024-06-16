@@ -5,29 +5,23 @@
 <title>Taller Mecanico Rayo Makween</title>
 <p class="hora centrar-texto" id="datetime"></p>
 
-
 <div style="text-align: center;">
+    <h2>Formulario Actualizar Datos</h2>
 
-    {% if usuario %}
-        <h2>Formulario Actualizar Datos</h2>
-
-        <from action="{% url 'Usuario_edit' %} " method="POST">
-            {% csrf_token %}
-
-            {{ form.as_table }}
-
-            <input type="submit" name="opcion" value="Actualizar"></input>
-
-        </from> <br><br>
-    {% endif %} 
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Actualizar">
+    </form>
+    
+    <br><br>
     <div id="idMensajes">
         {% if mensaje %}
-        {{mensaje}}
+            {{ mensaje }}
         {% endif %}
     </div>
     
     <br><br>
     <a href="{% url 'crud' %}">Volver</a>
 </div>
-
 {% endblock %}

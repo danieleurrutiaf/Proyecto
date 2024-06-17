@@ -1,6 +1,6 @@
 :root {
     --ColorPrincipal: #56070C;
-    --colorSecundario: #eae2c3;
+    --colorSecundario: #e9e2c4;
     --colorFormularioFondo: #56070ce0;
     --colorFormulario: #eae2c337;
 
@@ -501,5 +501,93 @@ header, footer {
     font-size: 3rem;
     margin: 0;
     font-family: var(--fuenteParrafos);
+    color: var(--ColorPrincipal);
+}
+
+/* Formulario Listado */
+
+.contenedor_listado{
+    display: flex;
+    justify-content: center;
+}
+
+.tabla_listado {
+    width: 70%; 
+    border-collapse: collapse; 
+    margin: 2rem 0; 
+    font-size: 2.1rem; 
+    text-align: left; 
+}
+
+
+.cabeza_tabla th {
+    background-color: var(--ColorPrincipal); 
+    color: var(--colorSecundario);
+    padding: 1rem; 
+    
+}
+
+
+.cuerpo_tabla td {
+    border: 1px solid var(--ColorPrincipal); 
+    padding: 8px; 
+}
+.btn_agregar, .btn_form, .input_agregar{
+    font-size: 2.1rem;
+    background-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+    font-family: var(--fuenteParrafos);
+    padding: 1rem;
+    transition: all 0.6s ease;
+}
+
+.btn_agregar :hover, .btn_form :hover{
+    color: var(--colorSecundario);
+}
+
+
+/* Formulario agregar*/
+.contenedor_formulario{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10rem;
+    
+}
+
+.contenedor_form_agregar {
+    background-color: var(--ColorPrincipal);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    width: 40rem;
+    margin: 2rem;
+    text-align: center;
+    color: var(--colorSecundario);
+    
+}
+.form_agregar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch ;
+}
+
+.form_agregar table {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.form_agregar input[type="text"],
+
+.form_agregar input[type="email"],
+.form_agregar input[type="date"],
+.form_agregar select {
+    width: calc(100% - 20px); /* To account for padding */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--colorSecundario);
+    border-radius: 4px;
+}
+.input_agregar:hover{
+    background-color: var(--colorSecundario);
     color: var(--ColorPrincipal);
 }

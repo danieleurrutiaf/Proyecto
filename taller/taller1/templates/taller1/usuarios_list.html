@@ -4,40 +4,45 @@
 {% block content %}
     <title>Taller Mecánico Rayo Makween</title>
     <div style="text-align: center;">
-        <h1>Listado De Usuario</h1><br>
+        <h1 class="subtitulo">Listado De Usuario</h1><br>
 
-        <button type="button">
-            <a href="{% url 'UsuarioAdd' %}">Agregar</a>
-        </button>
+        <a class="btn_agregar" type="button"
+            href="{% url 'UsuarioAdd' %}">Agregar
+        </a>
 
         <div id="idMensajes">
             {% if mensaje %}
                 {{ mensaje }}
             {% endif %}
         </div>
-
-        <table>
-            <thead>
+    <div class="contenedor_listado">
+        <table class="tabla_listado centrar-texto">
+            <thead class="cabeza_tabla">
                 <tr>
                     <th>Rut</th>
                     <th>Nombre</th>
                     <th>Apellido P.</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
                     <th>Eliminar</th>
                     <th>Modificar</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="cuerpo_tabla">
                 {% for x in Usuarios %}
                     <tr>
                         <td>{{ x.rut }}</td>
                         <td>{{ x.nombre }}</td>
                         <td>{{ x.apellido_paterno }}</td>
-                        <td><a href="{% url 'Usuario_del' pk=x.rut %}">Eliminar</a></td>
-                        <td><a href="{% url 'Usuario_edit' pk=x.rut %}">Modificar</a></td>
+                        <td>{{x.telefono}}</td>
+                        <td>{{x.email}}</td>
+                        <td><a class="btn_form" href="{% url 'Usuario_del' pk=x.rut %}">Eliminar</a></td>
+                        <td><a class="btn_form" href="{% url 'Usuario_edit' pk=x.rut %}">Modificar</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+    </div>
     </div>
 {% endblock %}
 

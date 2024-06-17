@@ -2,26 +2,24 @@
 {% load static %}
 
 {% block content %}
-<title>Taller Mecanico Rayo Makween</title>
-<p class="hora centrar-texto" id="datetime"></p>
+    <title>Taller Mecánico Rayo Makween</title>
+    <div class="contenedor_formulario">
+        <div class="contenedor_form_agregar">
+            <h2>Formulario Actualizar Datos</h2><br>
+            <form class="form_agregar" method="POST">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <input class="input_agregar" type="submit" value="Actualizar">
+            </form>
 
-<div style="text-align: center;">
-    <h2>Formulario Actualizar Datos</h2>
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_table }}
-        <input type="submit" value="Actualizar">
-    </form>
-    
-    <br><br>
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{ mensaje }}
-        {% endif %}
-    </div>
-    
-    <br><br>
-    <a href="{% url 'crud' %}">Volver</a>
-</div>
+            <br><br>
+            <div id="idMensajes">
+                {% if mensaje %}
+                    {{ mensaje }}
+                {% endif %}
+            </div>
+        </div>  
+    </div>   
+    <br>
+    <a class="btn_agregar" href="{% url 'crud' %}">Volver</a><br>
 {% endblock %}

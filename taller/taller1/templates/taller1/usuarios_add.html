@@ -3,12 +3,13 @@
 
 {% block content %}
     <title>Taller Mecánico Rayo Makween</title>
-    
+   <div class="contenedor_formulario">
+    <div class="contenedor_form_agregar">
         <h2>Formulario CRUD para Usuarios</h2><br>
-        <form action="" method="POST">
+        <form class="form_agregar" method="POST">
             {% csrf_token %}
             {{ form.as_table }}
-            <input type="submit" name="opcion" value="Agregar"> 
+            <input class="input_agregar" type="submit" name="opcion" value="Agregar"> 
         </form>
 
         <br>
@@ -18,11 +19,10 @@
                 {{ mensaje }}
             {% endif %}
         </div>
-        
-        <br>
-        <a href="{% url 'crud' %}">Volver </a>
-        <br>
-   
+    </div>  
+</div>   
+    <br>
+    <a class="btn_agregar" href="{% url 'crud' %}">Volver </a><br>
 {% endblock %}
 
 

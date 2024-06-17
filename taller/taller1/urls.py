@@ -1,15 +1,13 @@
-#from django.conf.urls import url
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
-    path ('', views.index, name='index'),
-    path ('base', views.base, name='base'),
-    path ('contacto', views.contacto, name='contacto'),
-    path ('noticias', views.noticias, name='noticias'),
-    path ('catalogo', views.catalogo, name='catalogo'),
-    path ('carrito', views.carrito, name='carrito'),
+    path('', views.index, name='index'),
+    path('base', views.base, name='base'),
+    path('contacto', views.contacto, name='contacto'),
+    path('noticias', views.noticias, name='noticias'),
+    path('catalogo', views.catalogo, name='catalogo'),
+    path('carrito', views.carrito, name='carrito'),
     path('servicio1', views.servicio1, name='servicio1'),
     path('servicio2', views.servicio2, name='servicio2'),
     path('servicio3', views.servicio3, name='servicio3'),
@@ -19,8 +17,5 @@ urlpatterns = [
     path('crud/', views.crud, name='crud'),
     path('UsuarioAdd', views.UsuarioAdd, name='UsuarioAdd'),
     path('Usuario_del/<str:pk>', views.Usuario_del, name='Usuario_del'),
-    path('Usuario_edit/<str:pk>', views.Usuario_edit, name='Usuario_edit')
-    
-    
-    
+    path('Usuario_edit/<str:pk>', views.Usuario_edit, name='Usuario_edit'),
 ]

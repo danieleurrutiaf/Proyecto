@@ -106,8 +106,11 @@ def Usuario_edit(request, pk):
     return render(request, 'taller1/usuarios_edit.html', context)
 
 
-
-
+def menu(request):
+    request.session["usuaruio"]="cgarcia"
+    usuario=request.session["usuario"]
+    context = {'usuario':usuario}
+    return render(request,'administrador/index.html', context)
 
 
 

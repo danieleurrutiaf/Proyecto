@@ -131,4 +131,41 @@ $(document).ready(function(){
     $("#idMensajes").delay(2000).fadeOut("slow");
 });
 
+//  Login
 
+document.addEventListener("DOMContentLoaded", function() {
+    const loginButton = document.getElementById('loginButton');
+    const loginModal = document.getElementById('loginModal');
+    const loginForm = document.getElementById('loginForm');
+    const userEmailDiv = document.getElementById('userEmail');
+    const closeSpan = document.querySelector('.close');
+
+    loginButton.addEventListener('click', function() {
+        loginModal.style.display = 'block';
+    });
+
+    closeSpan.addEventListener('click', function() {
+        loginModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == loginModal) {
+            loginModal.style.display = 'none';
+        }
+    });
+
+    loginForm.addEventListener('submit', function(evt) {
+        evt.preventDefault();
+        
+        const email = loginForm.email.value;
+        const password = loginForm.password.value;
+
+        if (password === '12345') {
+            loginModal.style.display = 'none';
+            userEmailDiv.textContent = email;
+            loginButton.style.display = 'none';
+        } else {
+            alert('Contraseña incorrecta');
+        }
+    });
+});

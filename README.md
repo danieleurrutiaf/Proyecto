@@ -34,3 +34,5 @@ Sebastian - - 16/JUN - - "Agregar y eliminar usuarios esta listo, falta hacer el
 Sebastian - - 16JUN - - "Estan todas las funciones y html de listar, agregar, eliminar y modificar listos... en el proximo commit ya estaran con los estilos listos"
 
 Sebastian - - 17JUN - - "Estan todos los estilos listos, ahora voy a hacer el login de la pagina, aunque primero voy pensar en la logica de ese mismo"
+
+Felipe - - 19JUN - - "Se integro un login con autentificacion Django"

@@ -107,10 +107,10 @@ def Usuario_edit(request, pk):
 
 
 def menu(request):
-    request.session["usuaruio"]="cgarcia"
+    request.session["usuario"]="cgarcia"
     usuario=request.session["usuario"]
     context = {'usuario':usuario}
-    return render(request,'administrador/index.html', context)
+    return render(request,'adminipstrador/index.html', context)
 
 
 

@@ -67,15 +67,11 @@
                     {% if user.is_authenticated %}
                         {{ user.username }}
                     {% else %}
-                        <a href="{% url 'login' %}" class="navegacion__enlace">Iniciar Sesión</a>
+                    <a href="{% url 'login' %}" class="nav-link navegacion__enlace buttonNav">Iniciar Sesión</a>
                     {% endif %}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {% if user.is_authenticated %}
-                        <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
-                    {% else %}
-
-                    {% endif %}
+                        <a class="dropdown-item navegacion__enlace" href="{% url 'logout' %}">Cerrar sesión</a>
                 </div>
               </li>
             </ul>

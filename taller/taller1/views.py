@@ -1,8 +1,9 @@
 from django.shortcuts import render , redirect, get_object_or_404
 from .models import Usuario,Genero
-
+from django.contrib.auth.decorators import login_required
 from .forms import UsuarioForm
 
+@login_required
 # Create your views here.
 
 
@@ -110,9 +111,11 @@ def menu(request):
     request.session["usuario"]="cgarcia"
     usuario=request.session["usuario"]
     context = {'usuario':usuario}
-    return render(request,'adminipstrador/index.html', context)
+    return render(request,'taller1/index.html', context)
 
-
+def home(request):
+    context = {}
+    return render(request, 'taller1/home.html', context)
 
 
 

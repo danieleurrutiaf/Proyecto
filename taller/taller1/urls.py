@@ -18,4 +18,5 @@ urlpatterns = [
     path('UsuarioAdd', views.UsuarioAdd, name='UsuarioAdd'),
     path('Usuario_del/<str:pk>', views.Usuario_del, name='Usuario_del'),
     path('Usuario_edit/<str:pk>', views.Usuario_edit, name='Usuario_edit'),
+    path('home', views.home, name='home'),
 ]

@@ -69,6 +69,7 @@ TEMPLATES = [
     },
 ]
 LOGIN_REDIRECT_URL ="index"
+LOGOUT_REDIRECT_URL="home"
 WSGI_APPLICATION = 'taller.wsgi.application'
 
 

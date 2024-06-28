@@ -153,19 +153,4 @@ document.addEventListener("DOMContentLoaded", function() {
             loginModal.style.display = 'none';
         }
     });
-
-    loginForm.addEventListener('submit', function(evt) {
-        evt.preventDefault();
-        
-        const email = loginForm.email.value;
-        const password = loginForm.password.value;
-
-        if (password === '12345') {
-            loginModal.style.display = 'none';
-            userEmailDiv.textContent = email;
-            loginButton.style.display = 'none';
-        } else {
-            alert('Contraseña incorrecta');
-        }
     });
-});

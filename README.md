@@ -36,3 +36,7 @@ Sebastian - - 16JUN - - "Estan todas las funciones y html de listar, agregar, el
 Sebastian - - 17JUN - - "Estan todos los estilos listos, ahora voy a hacer el login de la pagina, aunque primero voy pensar en la logica de ese mismo"
 
 Felipe - - 25JUN - - "Se integro un login con autentificacion Django"
+
+Felipe - - 27JUN - - "Correccion de errores del login"
+
+Felipe - - 28JUN - - "Se añadio un botón para cerrar sesion que llevaria al login devuelta"

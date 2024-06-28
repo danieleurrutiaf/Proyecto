@@ -63,7 +63,7 @@
               </form>
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle navegacion__enlace buttonNav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="dropdown-item navegacion__enlace" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {% if user.is_authenticated %}
                         {{ user.username }}
                     {% else %}

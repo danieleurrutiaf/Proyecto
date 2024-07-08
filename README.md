@@ -40,3 +40,6 @@ Felipe - - 25JUN - - "Se integro un login con autentificacion Django"
 Felipe - - 27JUN - - "Correccion de errores del login"
 
 Felipe - - 28JUN - - "Se añadio un botón para cerrar sesion que llevaria al login devuelta"
+
+Sebastian - - 8JUL - - "Se creo el registrar usuario"
+                       "Se elimino lo inncesesario para el proyecto y se corrigieron errores ortograficos"

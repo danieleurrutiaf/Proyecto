@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect, get_object_or_404
-from .models import Usuario,Genero
+from .models import Usuario,Genero, Servicio
 from django.contrib.auth.decorators import login_required
 from .forms import UsuarioForm
 
@@ -28,29 +28,13 @@ def catalogo(request):
     context = {}
     return render(request, 'taller1/catalogo.html', context)
 
+def servicio_detalle(request): 
+    context = {}
+    return render(request, 'taller1/servicio_detalle.html', context) 
+
 def carrito(request):
     context = {}
     return render(request, 'taller1/carrito.html', context)
-#Sercicios
-
-def servicio1(request):
-    context = {}
-    return render(request, 'taller1/Servicios/servicio1.html', context)
-def servicio2(request):
-    context = {}
-    return render(request, 'taller1/Servicios/servicio2.html', context)
-def servicio3(request):
-    context = {}
-    return render(request, 'taller1/Servicios/servicio3.html', context)
-def servicio4(request):
-    context = {}
-    return render(request, 'taller1/Servicios/servicio4.html', context)
-def servicio5(request):
-    context = {}
-    return render(request, 'taller1/Servicios/servicio5.html', context)
-def servicio6(request):
-    context = {}
-    return render(request, 'taller1/Servicios/servicio6.html', context)
 
 def crud(request):
     usuarios = Usuario.objects.all()
@@ -118,7 +102,11 @@ def home(request):
     return render(request, 'taller1/home.html', context)
 
 
-
+# Servicios 
+def servicios(request):
+    servicios = Servicio.objects.all()
+    context = {"servicios": servicios}
+    return render(request, 'taller1/catalogo.html', context)
 
 
 

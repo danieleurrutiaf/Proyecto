@@ -4,7 +4,7 @@
     --colorFormularioFondo: #56070ce0;
     --colorFormulario: #eae2c337;
 
-    --fuenteHeading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fuenteHeading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     --fuenteParrafos: 'Open Sans', sans-serif;
 }
 
@@ -517,6 +517,7 @@ header, footer {
     margin: 2rem 0; 
     font-size: 2.1rem; 
     text-align: left; 
+    font-family: var(--fuenteParrafos);
 }
 
 

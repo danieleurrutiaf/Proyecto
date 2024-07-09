@@ -19,6 +19,16 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.rut
+    
+class Servicio(models.Model):
+    id_servicio =  models.CharField(primary_key=True, max_length=10)
+    nombre_serv =  models.CharField(max_length=20)
+    precio = models.CharField(max_length=11)
+    plazo_entrega = models.CharField(max_length=20)
+    descripcion_servicio = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.id_servicio
 
     
 

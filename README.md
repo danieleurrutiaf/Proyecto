@@ -43,3 +43,5 @@ Felipe - - 28JUN - - "Se añadio un botón para cerrar sesion que llevaria al lo
 
 Sebastian - - 8JUL - - "Se creo el registrar usuario"
                        "Se elimino lo inncesesario para el proyecto y se corrigieron errores ortograficos"
+
+Sebastian  - - 8JUL - - "Se creo el crud de servicios, 5 servicios, la tabla servicios, solo falta agregar un showcase para mostrar la descripcion del servicio y dar la opcion de anadir al carrito, ademas del agregar,                             eliminar y modificar"

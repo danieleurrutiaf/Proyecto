@@ -592,3 +592,132 @@ header, footer {
     background-color: var(--colorSecundario);
     color: var(--ColorPrincipal);
 }
+/* Estilos generales */
+.container {
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Estilos para las tarjetas */
+.card {
+    border-radius: 10px;
+    border: 3px solid #ddd;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los textos */
+.titulo_servicio {
+    font-size: 2.5em;
+    color: var(--ColorPrincipal);
+    font-weight: bold;
+    background-color: var(--colorSecundario);
+    border-radius: 1em;
+}
+
+.precio_servicio, .plazo_servicio {
+    font-size: 2em;
+    color: var(--colorSecundario);
+}
+
+.texto_card {
+    margin-bottom: 10px;
+    margin-top: 2rem;
+}
+
+/* Estilos para los botones */
+.boton__modal {
+    width: 70%;
+    text-align: center;
+    margin-top: 3rem;
+    border-radius: 1em;
+}
+
+.btn-primary {
+    background-color: var(--colorSecundario);
+    border-color: var(--colorSecundario);
+    color: var(--ColorPrincipal);
+    font-size: 2rem;
+    border-radius: 1em;
+}
+
+.btn-primary:hover {
+    background-color: var(--ColorPrincipal);
+    border-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+    font-size: 2rem;
+}
+
+.btn-primary:active {
+    background-color: var(--ColorPrincipal);
+    border-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+}
+
+.btn-secondary {
+    background-color: var(--colorSecundario);
+    border-color: var(--colorSecundario);
+    color: var(--ColorPrincipal);
+    font-size: 2rem;
+    border-radius: 1em;
+}
+
+.btn-secondary:hover {
+    background-color: var(--ColorPrincipal);
+    border-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+    font-size: 2rem;
+}
+
+.btn-secondary:active {
+    background-color: var(--ColorPrincipal);
+    border-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 2rem;
+    background-color: var(--ColorPrincipal);
+}
+
+.modal-header {
+    background-color: var(--colorSecundario);
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-footer {
+    background-color: var(--colorSecundario);
+    border-top: 1px solid #ddd;
+}
+
+.modal-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--ColorPrincipal);
+
+}
+
+#modalServiceName {
+    font-size: 1.2em;
+    color: var(--colorSecundario);
+    font-weight: bold;
+}
+
+#modalServiceDescription {
+    font-size: 1em;
+    color: var(--colorSecundario);
+    margin-top: 10px;
+}

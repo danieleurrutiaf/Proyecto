@@ -8,55 +8,45 @@
     <h1 class="subtitulo centrar-texto no-margin">Nuestros servicios</h1>
 </div>
 
-<div style="text-align: center;">
-    <div class="contenedor_listado">
-        <table class="tabla_listado centrar-texto">
-            <thead class="cabeza_tabla">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre servicio</th>
-                    <th>Precio</th>
-                    <th>Plazo</th>
-                    <th>Ver Descripción detallada</th>
-                </tr>
-            </thead>
-            <tbody class="cuerpo_tabla">
-                {% for x in servicios %}
-                    <tr>
-                        <td>{{ x.id_servicio }}</td>
-                        <td>{{ x.nombre_serv }}</td>
-                        <td>{{ x.precio }}</td>
-                        <td>{{ x.plazo_entrega }}</td>
-                        <td>
-                            <!-- Botón para abrir el modal -->
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#descripcionModal{{ x.id_servicio }}">
-                                Ver Descripción
-                            </button>
-                        </td>
-                    </tr>
-
-                    <!-- Modal -->
-                    <div class="modal modal__estilos fade" id="descripcionModal{{ x.id_servicio }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Descripción del Servicio</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    {{ x.descripcion_servicio }}
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </tbody>
-        </table>
+<div class="container">
+    <div class="row">
+        {% for x in servicios %}
+        <div class="col-md-4 texto_catalogo">
+            <div class="mb-4 shadow-sm p-3 card texto_catalogo">
+                <h5 class="text-center titulo_servicio">{{ x.nombre_serv }}</h5>
+                <p class="texto_card precio_servicio"><strong>Precio:</strong> {{ x.precio }}</p>
+                <p class="texto_card plazo_servicio"><strong>Plazo:</strong> {{ x.plazo_entrega }}</p>
+                <button type="button" class="btn btn-primary boton__modal" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#serviceModal"
+                        data-nombre="{{ x.nombre_serv }}"
+                        data-descripcion="{{ x.descripcion_servicio }}">
+                    Ver Descripción
+                </button>
+                <a href="{% url 'carrito' %}" class="btn btn-secondary boton__modal mt-2">Añadir al Carrito</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Añadida clase modal-lg -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="serviceModalLabel">Descripción del Servicio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 id="modalServiceName"></h5>
+        <p id="modalServiceDescription"></p>
+      </div>
+      <div class="modal-footer">
+        <a href="{% url 'carrito' %}" class="btn btn-secondary">Ir al Carrito</a>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

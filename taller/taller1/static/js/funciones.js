@@ -154,3 +154,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var serviceModal = document.getElementById('serviceModal');
+        serviceModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var serviceName = button.getAttribute('data-nombre');
+            var serviceDescription = button.getAttribute('data-descripcion');
+    
+            var modalServiceName = serviceModal.querySelector('#modalServiceName');
+            var modalServiceDescription = serviceModal.querySelector('#modalServiceDescription');
+    
+            modalServiceName.textContent = serviceName;
+            modalServiceDescription.textContent = serviceDescription;
+        });
+    });

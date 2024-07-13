@@ -37,6 +37,7 @@ def catalogo(request):
     context = {}
     return render(request, 'taller1/catalogo.html', context)
 
+
 def servicio_detalle(request): 
     context = {}
     return render(request, 'taller1/servicio_detalle.html', context) 
@@ -119,12 +120,14 @@ def home(request):
 
 
 # Servicios 
+
 def servicios(request):
     servicios = Servicio.objects.all()
     context = {"servicios": servicios}
     return render(request, 'taller1/catalogo.html', context)
 
-
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 def servicio_list(request):
     servicios = Servicio.objects.all()
     context = {"servicios": servicios}

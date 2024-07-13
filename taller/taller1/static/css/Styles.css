@@ -548,12 +548,11 @@ header, footer {
 
 
 /* Formulario agregar*/
-.contenedor_formulario{
+.contenedor_formulario {
     display: flex;
     justify-content: center;
     width: 100%;
     gap: 10rem;
-    
 }
 
 .contenedor_form_agregar {
@@ -561,37 +560,67 @@ header, footer {
     padding: 2rem;
     border-radius: 0.8rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-    width: 40rem;
+    width: 80rem;
     margin: 2rem;
     text-align: center;
     color: var(--colorSecundario);
-    
 }
+
 .form_agregar {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch ;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    grid-template-rows: auto auto auto; /* Tres filas */
+    grid-template-areas:
+        "input1 input4"
+        "input2 input5"
+        "input3 input5"
+        "button button"; /* El botón ocupará ambas columnas */
+    gap: 1rem; /* Espacio entre columnas y filas */
+    font-size: 1.6rem;
 }
 
 .form_agregar table {
     width: 100%;
     margin-bottom: 2rem;
 }
-.form_agregar input[type="text"],
 
+.form_agregar input[type="text"],
 .form_agregar input[type="email"],
 .form_agregar input[type="date"],
+.form_agregar input[type="textarea"],
 .form_agregar select {
-    width: calc(100% - 20px); /* To account for padding */
+    width: 100%; /* Para considerar el padding */
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid var(--colorSecundario);
     border-radius: 4px;
 }
-.input_agregar:hover{
+
+.input_agregar {
     background-color: var(--colorSecundario);
     color: var(--ColorPrincipal);
+    width: 100%; /* Asegura que el botón ocupe todo el ancho de la celda */
+    padding: 10px;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    grid-column: span 2; /* Hace que el botón ocupe ambas columnas */
 }
+
+.input_agregar:hover {
+    background-color: var(--ColorPrincipal);
+    color: var(--colorSecundario);
+}
+
+/* Asigna las áreas a cada campo */
+.input1 { grid-area: input1; }
+.input2 { grid-area: input2; }
+.input3 { grid-area: input3; }
+.input4 { grid-area: input4; }
+.input5 { grid-area: input5; }
+.button { grid-area: button; }
+
 /* Estilos generales */
 .container {
     margin-top: 2rem;

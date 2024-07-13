@@ -1,7 +1,8 @@
 from django.shortcuts import render , redirect, get_object_or_404
 from .models import Usuario,Genero, Servicio
 from django.contrib.auth.decorators import login_required
-from .forms import UsuarioForm
+from .forms import UsuarioForm, ServicioForm
+from django.contrib import messages
 
 @login_required
 # Create your views here.
@@ -54,23 +55,19 @@ def UsuarioAdd(request):
     return render(request, 'taller1/usuarios_add.html', {'form': form}) 
 
 def Usuario_del(request, pk):
-    mensajes=[]
-    errores=[]
-    usuarios=Usuario.objects.all()
     try:
-        usuario= Usuario.objects.get(rut=pk)
-        context=()
-        if usuario:
-            usuario.delete()
-            mensajes.append("Bien, datos eliminados...")
-            context = {'usuarios': usuarios, 'mensajes': mensajes, 'errores': errores}
-            return render(request, 'taller1/usuarios_list.html', context)
-    except:
-        print("Error, rut no existe...")
-        usuarios= Usuario.objects.all()
-        mensaje= "Error, rut no existe..."
-        context={'mensaje': mensaje, 'usuarios': usuarios,}
-        return render(request, 'taller1/usuarios_list.html', context)    
+        # Obtén el objeto Servicio que deseas eliminar
+        usuario = get_object_or_404(Usuario, rut=pk)
+        usuario.delete()  # Elimina el objeto
+
+        # Mensaje de éxito
+        messages.success(request, "Bien, el usuario seleccionado eliminado...")
+    except Usuario.DoesNotExist:
+        # Mensaje de error si el servicio no existe
+        messages.error(request, "Error, el usuario no existe...")
+
+    # Redirige al usuario a la lista de servicios
+    return redirect('crud')    
 
     
 def Usuario_edit(request, pk):
@@ -109,10 +106,59 @@ def servicios(request):
     return render(request, 'taller1/catalogo.html', context)
 
 
+def servicio_list(request):
+    servicios = Servicio.objects.all()
+    context = {"servicios": servicios}
+    return render(request, 'taller1/servicio_list.html', context)
 
 
 
+def servicio_add(request):
+    mensaje = ""
+    # Obtener el último `id_servicio` registrado y aumentar en 1
+    ultimo_servicio = Servicio.objects.order_by('id_servicio').last()
+    siguiente_id_servicio = int(ultimo_servicio.id_servicio) + 1 if ultimo_servicio else 1
 
+    if request.method == 'POST':
+        form = ServicioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            mensaje = "Servicio creado con éxito."
+    else:
+        form = ServicioForm(initial={'id_servicio': siguiente_id_servicio})
 
+    return render(request, 'taller1/servicio_add.html', {'form': form, 'mensaje': mensaje})
     
 
+def servicio_edit(request, pk):
+    servicio = get_object_or_404(Servicio, id_servicio=pk)
+    if request.method == "POST":
+        form = ServicioForm(request.POST, instance=servicio)
+        if form.is_valid():
+            form.save()
+            mensaje = "Bien, datos actualizados..."
+            mensaje_tipo = "success"
+        else:
+            mensaje = "Error, datos no válidos."
+            mensaje_tipo = "error"
+        return render(request, 'taller1/servicio_edit.html', {'form': form, 'mensaje': mensaje, 'mensaje_tipo': mensaje_tipo})
+    else:
+        form = ServicioForm(instance=servicio)
+        mensaje = ""
+        mensaje_tipo = ""
+    return render(request, 'taller1/servicio_edit.html', {'form': form, 'mensaje': mensaje, 'mensaje_tipo': mensaje_tipo})
+
+def servicio_del(request, pk):
+    try:
+        # Obtén el objeto Servicio que deseas eliminar
+        servicio = get_object_or_404(Servicio, id_servicio=pk)
+        servicio.delete()  # Elimina el objeto
+
+        # Mensaje de éxito
+        messages.success(request, "Bien, servicio seleccionado eliminado...")
+    except Servicio.DoesNotExist:
+        # Mensaje de error si el servicio no existe
+        messages.error(request, "Error, el servicio no existe...")
+
+    # Redirige al usuario a la lista de servicios
+    return redirect('servicio_list')

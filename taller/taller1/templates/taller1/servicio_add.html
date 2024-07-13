@@ -1,0 +1,88 @@
+{% extends 'taller1/base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Taller Mecánico Rayo Makween</title>
+<div class="contenedor_formulario">
+    <div class="contenedor_form_agregar">
+        <h2>Crear Servicio</h2><br>
+        <form class="form_agregar" method="POST">
+            {% csrf_token %}
+            <div class="input1" disabled>
+                {{ form.id_servicio.label_tag }}<br>
+                {{ form.id_servicio }}
+            </div>
+            <div class="input2">
+                {{ form.nombre_serv.label_tag }}<br>
+                {{ form.nombre_serv }}
+            </div>
+            <div class="input3">
+                {{ form.precio.label_tag }}<br>
+                {{ form.precio }}
+            </div>
+            <div class="input4">
+                {{ form.plazo_entrega.label_tag }}<br>
+                {{ form.plazo_entrega }}
+            </div>
+            <div class="input5">
+                {{ form.descripcion_servicio.label_tag }}<br>
+                {{ form.descripcion_servicio }}
+            </div>
+            <div class="button">
+                <input class="input_agregar" type="submit" name="opcion" value="Agregar">
+            </div>
+        </form>
+
+        <br>
+
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
+    </div>  
+</div>   
+<br>
+<a  style="display: block; width: 200px; margin: 0 auto; text-align: center; padding: 10px 20px; background-color: var(--ColorPrincipal); color: var(--colorSecundario); border-radius: 4px; text-decoration: none; font-size: 1.6rem;" class="btn_agregar" href="{% url 'servicio_list' %}">Volver </a><br>
+
+<!-- Modal -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resultModalLabel">Resultado de la Operación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="modalMessage"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var mensaje = "{{ mensaje }}";
+    var mensajeTipo = "{{ mensaje_tipo }}";
+    if (mensaje) {
+        var modalMessage = document.getElementById("modalMessage");
+        if (mensajeTipo === "success") {
+            modalMessage.textContent = mensaje;
+            modalMessage.classList.add("text-success");
+        } else {
+            modalMessage.textContent = mensaje;
+            modalMessage.classList.add("text-danger");
+        }
+        var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+        resultModal.show();
+    }
+});
+</script>
+{% endblock %}
+

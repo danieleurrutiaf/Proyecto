@@ -5,8 +5,13 @@
 <title>Taller Mecánico Rayo Makween</title>
 <div>
     <p class="hora centrar-texto" id="datetime"></p>
-    <h1 class="subtitulo centrar-texto no-margin">Nuestros servicios</h1>
+    <h1 class="subtitulo centrar-texto no-margin">Agregar / Modificar / Eliminar servicios</h1>
 </div>
+
+<a style="display: block; width: 200px; margin: 0 auto; text-align: center; padding: 10px 20px; background-color: var(--ColorPrincipal); color: var(--colorSecundario); border-radius: 4px; text-decoration: none; font-size: 1.6rem;" href="{% url 'servicio_add' %}">
+  Agregar
+</a>
+
 
 <div class="container">
     <div class="row">
@@ -14,6 +19,7 @@
         <div class="col-md-4 texto_catalogo">
             <div class="mb-4 shadow-sm p-3 card texto_catalogo">
                 <h5 class="text-center titulo_servicio">{{ x.nombre_serv }}</h5>
+                <p class="texto_card precio_servicio"><strong>ID:</strong> {{ x.id_servicio }}</p>
                 <p class="texto_card precio_servicio"><strong>Precio:</strong> {{ x.precio }}</p>
                 <p class="texto_card plazo_servicio"><strong>Plazo:</strong> {{ x.plazo_entrega }}</p>
                 <button type="button" class="btn btn-primary boton__modal" 
@@ -23,11 +29,16 @@
                         data-descripcion="{{ x.descripcion_servicio }}">
                     Ver Descripción
                 </button>
+                <a href="{% url 'servicio_del' pk=x.id_servicio %}" class="btn btn-secondary boton__modal mt-2" ">Eliminar</a>
+                <a href="{% url 'servicio_edit' pk=x.id_servicio %}" class="btn btn-secondary boton__modal mt-2" ">Modificar</a>
             </div>
         </div>
         {% endfor %}
     </div>
+    
 </div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
@@ -48,4 +59,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}

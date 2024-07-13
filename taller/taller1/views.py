@@ -45,6 +45,8 @@ def carrito(request):
     context = {}
     return render(request, 'taller1/carrito.html', context)
 
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 def crud(request):
     usuarios = Usuario.objects.all()
     mecanicos = Mecanico.objects.all()
@@ -57,7 +59,6 @@ def crud(request):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def UsuarioAdd(request):
     if request.method == "POST":
         form = UsuarioForm(request.POST)
@@ -71,7 +72,6 @@ def UsuarioAdd(request):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def Usuario_del(request, pk):
     try:
         # Obtén el objeto Servicio que deseas eliminar
@@ -89,7 +89,6 @@ def Usuario_del(request, pk):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-    
 def Usuario_edit(request, pk):
     usuario = get_object_or_404(Usuario, rut=pk)  # Utiliza get_object_or_404 para manejar usuarios no existentes
     if request.method == "POST":
@@ -134,7 +133,6 @@ def servicio_list(request):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def servicio_add(request):
     mensaje = ""
     # Obtener el último `id_servicio` registrado y aumentar en 1
@@ -153,7 +151,6 @@ def servicio_add(request):
     
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def servicio_edit(request, pk):
     servicio = get_object_or_404(Servicio, id_servicio=pk)
     if request.method == "POST":
@@ -174,7 +171,6 @@ def servicio_edit(request, pk):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def servicio_del(request, pk):
     try:
         # Obtén el objeto Servicio que deseas eliminar
@@ -192,7 +188,6 @@ def servicio_del(request, pk):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def mecanico_add(request):
     if request.method == "POST":
         form = MecanicoForm(request.POST)
@@ -206,7 +201,6 @@ def mecanico_add(request):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def mecanico_del(request, pk):
     try:
         # Obtén el objeto Servicio que deseas eliminar
@@ -224,7 +218,6 @@ def mecanico_del(request, pk):
 
 @login_required
 @user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
-
 def mecanico_edit(request, pk):
     mecanico = get_object_or_404(Mecanico, rut=pk)  # Utiliza get_object_or_404 para manejar usuarios no existentes
     if request.method == "POST":

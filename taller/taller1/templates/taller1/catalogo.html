@@ -1,3 +1,10 @@
+{% extends 'taller1/base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Taller Mecánico Rayo Makween</title>
+<div>
+    <p class="hora centrar-texto" id="datetime"></p>
     <h1 class="subtitulo centrar-texto no-margin">Nuestros servicios</h1>
 </div>
 
@@ -43,11 +50,10 @@
 </div>
 
 <!-- Carrito de compras -->
+ 
 <div class="carrito" id="cart">
   <h4 class="text-center titulo_servicio">Carrito De Compras</h4>
-  
   <h3><strong><ul id="cart-items" class="carrito-items"></ul></strong> </h3>
-
   <button class="btn btn-secondary boton-item boton__modal mt-2 btn-pagar">Pagar</button>
   <div class="carrito-total">
       <h3><strong>Total:</strong> <span class="carrito-precio-total">$000</span></h3>

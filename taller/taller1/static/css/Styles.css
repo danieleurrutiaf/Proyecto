@@ -4,7 +4,7 @@
     --colorFormularioFondo: #56070ce0;
     --colorFormulario: #eae2c337;
 
-    --fuenteHeading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    --fuenteHeading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --fuenteParrafos: 'Open Sans', sans-serif;
 }
 
@@ -750,4 +750,39 @@ header, footer {
     font-size: 1em;
     color: var(--colorSecundario);
     margin-top: 10px;
+}
+
+
+/* seccion carrito */
+
+.carrito {
+    width: 300px;
+    border: 1px solid var(--ColorPrincipal);
+    padding: 20px;
+    background-color: var(--colorSecundario);
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+}
+
+.carrito ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.carrito li {
+    margin: 10px 0;
+}
+
+.carrito .btn-eliminar {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.carrito .carrito-total {
+    margin-top: 20px;
 }

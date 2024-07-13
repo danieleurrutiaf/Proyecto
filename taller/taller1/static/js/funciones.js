@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
     const cart = document.getElementById('cart');
     const cartItems = document.getElementById('cart-items');
-    const cartTotal = document.querySelector('.carrito-precio-total');
+    const cartTotal = document.querySelector('.carri-precio-total');
     const payButton = document.querySelector('.btn-pagar');
     let total = 0;
 

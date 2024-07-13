@@ -44,5 +44,50 @@
         </table>
     </div>
     </div>
+
+
+    <div style="text-align: center;">
+        <h1 class="subtitulo">Listado De Mecanicos</h1><br>
+
+        <a class="btn_agregar" type="button"
+            href="{% url 'mecanico_add' %}">Agregar
+        </a>
+
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
+    <div class="contenedor_listado">
+        <table class="tabla_listado centrar-texto">
+            <thead class="cabeza_tabla">
+                <tr>
+                    <th>Rut</th>
+                    <th>Nombre</th>
+                    <th>Apellido P.</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Especialidad</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+            <tbody class="cuerpo_tabla">
+                {% for x in Mecanicos %}
+                    <tr>
+                        <td>{{ x.rut }}</td>
+                        <td>{{ x.nombre }}</td>
+                        <td>{{ x.apellido_paterno }}</td>
+                        <td>{{x.telefono}}</td>
+                        <td>{{x.email}}</td>
+                        <td>{{x.especialidad}}</td>
+                        <td><a class="btn_form" href="{% url 'mecanico_del' pk=x.rut %}">Eliminar</a></td>
+                        <td><a class="btn_form" href="{% url 'mecanico_edit' pk=x.rut %}">Modificar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
 {% endblock %}
 

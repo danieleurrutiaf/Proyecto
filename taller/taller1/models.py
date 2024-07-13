@@ -31,6 +31,18 @@ class Servicio(models.Model):
         return self.id_servicio
 
     
+class Mecanico(models.Model):
+    rut = models.CharField(primary_key=True, max_length=10)
+    nombre = models.CharField(max_length=20)
+    apellido_paterno = models.CharField(max_length=20)
+    apellido_materno = models.CharField(max_length=20)
+    fecha_nacimiento = models.DateField(blank=False, null=False)
+    id_genero = models.ForeignKey(Genero, on_delete=models.CASCADE, db_column='idGenero')
+    telefono = models.CharField(max_length=45)
+    email = models.EmailField(unique=True, max_length=100, blank=True, null=True)
+    especialidad = models.CharField(max_length=15)
 
+    def __str__(self):
+        return self.rut
 
    

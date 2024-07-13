@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect, get_object_or_404
-from .models import Usuario,Genero, Servicio
+from .models import Usuario,Genero, Servicio, Mecanico
 from django.contrib.auth.decorators import login_required
-from .forms import UsuarioForm, ServicioForm
+from .forms import UsuarioForm, ServicioForm, MecanicoForm
 from django.contrib import messages
 
 @login_required
@@ -39,8 +39,13 @@ def carrito(request):
 
 def crud(request):
     usuarios = Usuario.objects.all()
-    context = {"Usuarios": usuarios}
+    mecanicos = Mecanico.objects.all()
+    context = {
+        "Usuarios": usuarios,
+        "Mecanicos": mecanicos
+    }
     return render(request, 'taller1/usuarios_list.html', context)
+
 
 
 def UsuarioAdd(request):
@@ -162,3 +167,48 @@ def servicio_del(request, pk):
 
     # Redirige al usuario a la lista de servicios
     return redirect('servicio_list')
+
+
+def mecanico_add(request):
+    if request.method == "POST":
+        form = MecanicoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'taller1/mecanico_add.html', {'form': form})  # Redirige a la página principal o a donde corresponda después de agregar el usuario
+    else:
+        form = MecanicoForm()
+
+    return render(request, 'taller1/mecanico_add.html', {'form': form}) 
+
+
+def mecanico_del(request, pk):
+    try:
+        # Obtén el objeto Servicio que deseas eliminar
+        mecanico = get_object_or_404(Mecanico, rut=pk)
+        mecanico.delete()  # Elimina el objeto
+
+        # Mensaje de éxito
+        messages.success(request, "Bien, el usuario seleccionado eliminado...")
+    except Mecanico.DoesNotExist:
+        # Mensaje de error si el servicio no existe
+        messages.error(request, "Error, el usuario no existe...")
+
+    # Redirige al usuario a la lista de servicios
+    return redirect('crud')
+
+def mecanico_edit(request, pk):
+    mecanico = get_object_or_404(Mecanico, rut=pk)  # Utiliza get_object_or_404 para manejar usuarios no existentes
+    if request.method == "POST":
+        form = MecanicoForm(request.POST, instance=mecanico)
+        if form.is_valid():  # Asegúrate de que el formulario es válido antes de guardar
+            form.save()
+            mensaje = "Bien, datos actualizados..."
+            return redirect('mecanico_edit', pk=mecanico.rut)  # Redirige a una página de detalle o lista después de guardar
+        else:
+            mensaje = "Error, datos no válidos."
+    else:
+        form = MecanicoForm(instance=mecanico)
+        mensaje = ""
+
+    context = {'mecanico': mecanico, 'form': form, 'mensaje': mensaje}
+    return render(request, 'taller1/mecanico_edit.html', context)

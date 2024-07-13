@@ -1,0 +1,26 @@
+{% extends 'taller1/base.html' %}
+{% load static %}
+
+{% block content %}
+    <title>Taller Mecánico Rayo Makween</title>
+   <div class="contenedor_formulario">
+    <div class="contenedor_form_agregar">
+        <h2>Crear cuenta Mecanico</h2><br>
+        <form class="form_agregar" method="POST">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <input class="input_agregar" type="submit" name="opcion" value="Agregar"> 
+        </form>
+
+        <br>
+
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
+    </div>  
+</div>   
+    <br>
+    <a style="display: block; width: 200px; margin: 0 auto; text-align: center; padding: 10px 20px; background-color: var(--ColorPrincipal); color: var(--colorSecundario); border-radius: 4px; text-decoration: none; font-size: 1.6rem;"  class="btn_agregar" href="{% url 'crud' %}">Volver </a><br>
+{% endblock %}

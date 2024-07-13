@@ -47,3 +47,6 @@ Sebastian - - 8JUL - - "Se creo el registrar usuario"
 Sebastian  - - 8JUL - - "Se creo el crud de servicios, 5 servicios, la tabla servicios, solo falta agregar un showcase para mostrar la descripcion del servicio y dar la opcion de anadir al carrito, ademas del agregar,                             eliminar y modificar"
 
 Sebastian - - 9JUL - - "Se crearon las cards para mostrar la informacion de cada servicio aparte de un modal el cual muestra la descripcion y da la opcion de anadir al carrito. Tiene sus estilos y todo lo visual listo"
+
+Sebastian - - 12JUL - - "Se termino lo pendiente del anterior commit, con esto se finaliza la etapa de lstar, agregar, eliminar, modificar los servicios tambien el problema que teniamos al eliminar un usuario"
+                        Solo falta que mis companeros terminen su parte para tener el proyecto listo para la presentacion"

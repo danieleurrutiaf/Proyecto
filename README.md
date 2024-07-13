@@ -50,3 +50,6 @@ Sebastian - - 9JUL - - "Se crearon las cards para mostrar la informacion de cada
 
 Sebastian - - 12JUL - - "Se termino lo pendiente del anterior commit, con esto se finaliza la etapa de lstar, agregar, eliminar, modificar los servicios tambien el problema que teniamos al eliminar un usuario"
                         Solo falta que mis companeros terminen su parte para tener el proyecto listo para la presentacion"
+
+
+Sebastian  - - 12JUL - - "Se creo el mecanico y todo lo correspondiente a el"

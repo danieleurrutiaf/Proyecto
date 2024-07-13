@@ -755,7 +755,7 @@ header, footer {
 
 /* seccion carrito */
 
-.carrito {
+.carri {
     width: 300px;
     border: 1px solid var(--ColorPrincipal);
     padding: 20px;
@@ -767,22 +767,22 @@ header, footer {
     z-index: 1000;
 }
 
-.carrito ul {
+.carri ul {
     list-style-type: none;
     padding: 0;
 }
 
-.carrito li {
+.carri li {
     margin: 10px 0;
 }
 
-.carrito .btn-eliminar {
+.carri .btn-eliminar {
     background-color: red;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-.carrito .carrito-total {
+.carri .carri-total {
     margin-top: 20px;
 }

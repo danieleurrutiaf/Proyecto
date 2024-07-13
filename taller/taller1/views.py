@@ -1,10 +1,18 @@
 from django.shortcuts import render , redirect, get_object_or_404
 from .models import Usuario,Genero, Servicio, Mecanico
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,user_passes_test
 from .forms import UsuarioForm, ServicioForm, MecanicoForm
 from django.contrib import messages
 
-@login_required
+
+def admin_or_superuser(user):
+    return user.is_superuser or user.is_staff
+
+def handle_no_permission(request):
+    messages.error(request, 'No tienes permiso para acceder a esta página.')
+    return redirect('index')
+
+
 # Create your views here.
 
 
@@ -47,6 +55,8 @@ def crud(request):
     return render(request, 'taller1/usuarios_list.html', context)
 
 
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 
 def UsuarioAdd(request):
     if request.method == "POST":
@@ -58,6 +68,9 @@ def UsuarioAdd(request):
         form = UsuarioForm()
 
     return render(request, 'taller1/usuarios_add.html', {'form': form}) 
+
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 
 def Usuario_del(request, pk):
     try:
@@ -74,6 +87,8 @@ def Usuario_del(request, pk):
     # Redirige al usuario a la lista de servicios
     return redirect('crud')    
 
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
     
 def Usuario_edit(request, pk):
     usuario = get_object_or_404(Usuario, rut=pk)  # Utiliza get_object_or_404 para manejar usuarios no existentes
@@ -117,6 +132,8 @@ def servicio_list(request):
     return render(request, 'taller1/servicio_list.html', context)
 
 
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 
 def servicio_add(request):
     mensaje = ""
@@ -134,6 +151,8 @@ def servicio_add(request):
 
     return render(request, 'taller1/servicio_add.html', {'form': form, 'mensaje': mensaje})
     
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 
 def servicio_edit(request, pk):
     servicio = get_object_or_404(Servicio, id_servicio=pk)
@@ -153,6 +172,9 @@ def servicio_edit(request, pk):
         mensaje_tipo = ""
     return render(request, 'taller1/servicio_edit.html', {'form': form, 'mensaje': mensaje, 'mensaje_tipo': mensaje_tipo})
 
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
+
 def servicio_del(request, pk):
     try:
         # Obtén el objeto Servicio que deseas eliminar
@@ -168,6 +190,8 @@ def servicio_del(request, pk):
     # Redirige al usuario a la lista de servicios
     return redirect('servicio_list')
 
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 
 def mecanico_add(request):
     if request.method == "POST":
@@ -180,6 +204,8 @@ def mecanico_add(request):
 
     return render(request, 'taller1/mecanico_add.html', {'form': form}) 
 
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 
 def mecanico_del(request, pk):
     try:
@@ -195,6 +221,9 @@ def mecanico_del(request, pk):
 
     # Redirige al usuario a la lista de servicios
     return redirect('crud')
+
+@login_required
+@user_passes_test(admin_or_superuser, login_url='index', redirect_field_name=None)
 
 def mecanico_edit(request, pk):
     mecanico = get_object_or_404(Mecanico, rut=pk)  # Utiliza get_object_or_404 para manejar usuarios no existentes

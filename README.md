@@ -53,3 +53,5 @@ Sebastian - - 12JUL - - "Se termino lo pendiente del anterior commit, con esto s
 
 
 Sebastian  - - 12JUL - - "Se creo el mecanico y todo lo correspondiente a el"
+
+Felipe - - 12JUL - - "Los usuarios sin permisos no podrán acceder a ciertas funciones de la página"

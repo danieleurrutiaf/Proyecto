@@ -20,7 +20,7 @@ class UsuarioForm(forms.ModelForm):
 class ServicioForm(forms.ModelForm):
     class Meta:
         model = Servicio
-        fields = ['id_servicio', 'nombre_serv', 'precio', 'plazo_entrega', 'descripcion_servicio']
+        fields = ['id_servicio', 'nombre_serv', 'precio', 'plazo_entrega', 'descripcion_servicio', 'especialidad_me']
         widgets = {
             'descripcion_servicio': forms.Textarea(attrs={'rows': 4, 'cols': 40}),
             'id_servicio': forms.TextInput(attrs={'readonly': 'readonly'}),

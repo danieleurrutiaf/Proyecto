@@ -572,7 +572,7 @@ header, footer {
     grid-template-rows: auto auto auto; /* Tres filas */
     grid-template-areas:
         "input1 input4"
-        "input2 input5"
+        "input2 input6"
         "input3 input5"
         "button button"; /* El botón ocupará ambas columnas */
     gap: 1rem; /* Espacio entre columnas y filas */
@@ -618,6 +618,7 @@ header, footer {
 .input2 { grid-area: input2; }
 .input3 { grid-area: input3; }
 .input4 { grid-area: input4; }
+.input6 { grid-area: input6; }
 .input5 { grid-area: input5; }
 .button { grid-area: button; }
 

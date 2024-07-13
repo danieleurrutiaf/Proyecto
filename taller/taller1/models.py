@@ -26,6 +26,7 @@ class Servicio(models.Model):
     precio = models.CharField(max_length=11)
     plazo_entrega = models.CharField(max_length=20)
     descripcion_servicio = models.CharField(max_length=500)
+    especialidad_me = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.id_servicio
